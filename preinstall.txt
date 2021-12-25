@@ -1,0 +1,4 @@
+npm install firebase@8.5
+firebase init
+npm install react-router-dom@5
+
