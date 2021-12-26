@@ -1,4 +1,5 @@
 npm install firebase@8.5
 firebase init
 npm install react-router-dom@5
+npm install react-select
 

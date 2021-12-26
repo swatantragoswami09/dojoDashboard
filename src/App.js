@@ -10,7 +10,8 @@ import Forget from "./pages/forget/Forget";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { useTheme } from "./hooks/useTheme";
-import ThemeSelector from "./components/ThemeSelector";
+
+import OnlineUsers from "./components/OnlineUsers";
 
 function App() {
   const { mode } = useTheme();
@@ -19,7 +20,7 @@ function App() {
     <div className={`App ${mode}`}>
       {authIsReady && (
         <BrowserRouter>
-          <Sidebar />
+          {user && <Sidebar />}
           <div className="container">
             <Navbar />
             <Switch>
@@ -49,6 +50,7 @@ function App() {
               </Route>
             </Switch>
           </div>
+          {user && <OnlineUsers />}
         </BrowserRouter>
       )}
     </div>
