@@ -1,3 +1,14 @@
+import { useTheme } from "../../hooks/useTheme";
+
 export default function Create() {
-  return <div>Create page</div>;
+  const { mode } = useTheme();
+  return (
+    <div
+      style={{
+        filter: mode === "dark" ? "invert(100%)" : "invert(20%)",
+      }}
+    >
+      Create page
+    </div>
+  );
 }

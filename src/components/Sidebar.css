@@ -1,7 +1,7 @@
 .sidebar {
-  width: 300px;
-  min-width: 300px;
-  background: var(--primary-color);
+  width: 250px;
+  /* min-width: 150px; */
+  background: #0099cc;
   min-height: 100vh;
   box-sizing: border-box;
   position: relative;
@@ -17,10 +17,10 @@
   text-align: center;
   letter-spacing: 1px;
   padding: 40px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(163, 11, 11, 0.2);
 }
 .sidebar .links {
-  margin-top: 80px;
+  margin-top: 40px;
   margin-left: 20px;
 }
 .sidebar .links li {
@@ -39,9 +39,10 @@
   filter: invert(100%);
 }
 .sidebar .links a.active {
-  color: #555;
+  color: rgb(255, 255, 255);
   background: var(--bg-color);
   border-radius: 20px 0 0 20px;
+  background-color: black;
 }
 .sidebar .links .active img {
   filter: invert(40%);

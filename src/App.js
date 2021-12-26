@@ -9,11 +9,14 @@ import Signup from "./pages/signup/Signup";
 import Forget from "./pages/forget/Forget";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import { useTheme } from "./hooks/useTheme";
+import ThemeSelector from "./components/ThemeSelector";
 
 function App() {
+  const { mode } = useTheme();
   const { user, authIsReady } = useAuthContext();
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       {authIsReady && (
         <BrowserRouter>
           <Sidebar />

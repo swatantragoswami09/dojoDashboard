@@ -47,8 +47,8 @@ ul {
   border: 1px solid var(--primary-color);
 }
 .btn:hover {
-  color: #fff;
-  background-color: var(--primary-color);
+  color: rgb(0, 0, 0);
+  background-color: #0099cc;
 }
 
 /* forms */

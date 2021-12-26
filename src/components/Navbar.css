@@ -29,3 +29,8 @@
   text-decoration: none;
   margin-right: 20px;
 }
+/* dark mode */
+.recipe.dark span li {
+  /* background: rgb(78, 192, 192); */
+  color: #ffffff;
+}
