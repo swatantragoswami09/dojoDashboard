@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
 import { useDocument } from "../../hooks/useDocument";
 import ProjectSummary from "./ProjectSummary";
+import ProjectComments from "./ProjectComments";
 
 export default function Project() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export default function Project() {
         style={{
           filter: mode === "dark" ? "invert(100%)" : "invert(20%)",
         }}
-        className="error"
+        className="error  "
       >
         {error}
       </div>
@@ -41,6 +42,7 @@ export default function Project() {
       }}
     >
       <ProjectSummary project={document} />
+      <ProjectComments project={document} />
     </div>
   );
 }

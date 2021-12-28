@@ -1,3 +1,4 @@
+import { wait } from "@testing-library/user-event/dist/utils";
 import { useReducer, useEffect, useState } from "react";
 import { projectFirestore, timestamp } from "../firebase/config";
 
@@ -9,6 +10,13 @@ let initialState = {
 };
 const firestoreReducer = (state, action) => {
   switch (action.type) {
+    case "UPDATED_DOCUMENT":
+      return {
+        isPending: false,
+        document: action.payload,
+        success: true,
+        error: null,
+      };
     case "IS_PENDING":
       return { isPending: true, document: null, success: false, error: null };
     case "ADDED_DOCUMENT":
@@ -78,8 +86,26 @@ export const useFirestore = (collection) => {
     }
   };
 
+  // update document
+  const updateDocument = async (id, updates) => {
+    dispatch({
+      type: "IS_PENDING",
+    });
+    try {
+      const updatedDocument = await ref.doc(id).update(updates);
+      dispatchIfNotCancelled({
+        type: "UPDATED_DOCUMENT",
+        payload: updatedDocument,
+      });
+      return updatedDocument;
+    } catch (error) {
+      dispatchIfNotCancelled({ type: "ERROR", payload: error.message });
+      return null;
+    }
+  };
+
   useEffect(() => {
     return () => setIsCancelled(true);
   }, []);
-  return { addDocument, deleteDocument, response };
+  return { addDocument, deleteDocument, updateDocument, response };
 };
